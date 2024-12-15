@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from viewer.views import FormGenreView, ListGenreView, hello
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', hello, name='home'),
+    path('zanra', ListGenreView.as_view(), name='genre'),
+    path('genre/create', FormGenreView.as_view(), name='genre-create')
 ]
